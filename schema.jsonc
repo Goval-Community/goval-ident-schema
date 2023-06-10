@@ -1,0 +1,57 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/Goval-Community/goval-ident-schema/main/schema.jsonc",
+    "title": "Goval Ident Schema",
+    "description": "JSON Schema for the goval ident protocol",
+    "type": "object",
+    "properties": {
+        "server": {
+            "type": "string",
+            "description": "Name of the goval server",
+            "markdownDescription": "Name of the goval server. See [govaldocs](https://govaldocs.pages.dev/implementations/) for existing goval server implementations."
+        },
+        "version": {
+            "type": "string",
+            "description": "Current version of the goval server"
+        },
+        "license": {
+            "type": "string",
+            "description": "License for the goval server software used (SPDX id)"
+        },
+        "authors": {
+            "type": "array",
+            "description": "Authors of the goval server",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        },
+        "repository": {
+            "type": "string",
+            "description": "Link to the git server with the used goval servers source code"
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the goval server"
+        },
+        "uptime": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Uptime of the server counted in seconds"
+        },
+        "services": {
+            "type": "array",
+            "description": "Services that the goval server implements",
+            "items": {
+                "type": "string"
+                // TODO: make this an enum of all possible services 
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "server"
+    ]
+}
